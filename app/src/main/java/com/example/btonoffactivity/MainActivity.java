@@ -23,8 +23,22 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Button openBluetoothBtn = findViewById(R.id.btnOpenBluetooth);
-        openBluetoothBtn.setOnClickListener(new View.OnClickListener() {
+        // BLUETOOTH_SETTINGSボタンを押下した場合
+        Button openBluetoothSettingsBtn = findViewById(R.id.btnOpenBLUETOOTH_SETTINGS);
+        openBluetoothSettingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // BLUETOOTH_SETTINGS画面へ遷移
+                Intent intent = new Intent();
+                intent.setAction("android.settings.BLUETOOTH_SETTINGS");
+                startActivity(intent);
+            }
+        });
+
+        // BLUETOOTH_DASHBOARD_SETTINGSボタンを押下した場合
+        // Android 15 (U) 以上のみBLUETOOTH_DASHBOARD_SETTINGSに遷移可能
+        Button openBluetoothDashboardSettingsBtn = findViewById(R.id.btnOpenBLUETOOTH_DASHBOARD_SETTINGS);
+        openBluetoothDashboardSettingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT)
@@ -34,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                             new String[]{Manifest.permission.BLUETOOTH_CONNECT},
                             BLUETOOTH_PERMISSION_REQUEST_CODE);
                 } else {
-                    // パーミッションがすでに許可されている場合は設定画面へ遷移
+                    // パーミッションがすでに許可されている場合はBLUETOOTH_DASHBOARD_SETTINGS画面へ遷移
                     openBluetoothSettings();
                 }
             }
@@ -43,16 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
     // Bluetooth設定画面に遷移するメソッド
     private void openBluetoothSettings() {
+        // BLUETOOTH_DASHBOARD_SETTINGS画面へ遷移
         Intent intent = new Intent();
-        if (Build.VERSION.SDK_INT >= 35) {
-            // Android 15 (U) 以上 → ダッシュボード設定
-            intent.setAction("android.settings.BLUETOOTH_DASHBOARD_SETTINGS");
-        } else {
-            // それ以下のバージョン → 従来のBluetooth設定画面
-            intent.setAction("android.settings.BLUETOOTH_SETTINGS");
-        }
+        intent.setAction("android.settings.BLUETOOTH_DASHBOARD_SETTINGS");
         startActivity(intent);
-    }
+   }
 
     // パーミッションリクエストの結果を処理するメソッド
     @Override
@@ -63,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == BLUETOOTH_PERMISSION_REQUEST_CODE) {
             // パーミッションが許可されたかどうかを確認
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // 許可された場合は設定画面へ遷移
+                // 許可された場合はBLUETOOTH_DASHBOARD_SETTINGS画面へ遷移
                 openBluetoothSettings();
             }
         }
