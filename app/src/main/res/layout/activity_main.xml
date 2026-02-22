@@ -1,22 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnOpenBLUETOOTH_SETTINGS"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BLUETOOTH_SETTINGS"
-        android:layout_margin="16dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnOpenBLUETOOTH_DASHBOARD_SETTINGS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BLUETOOTH_DASHBOARD_SETTINGS"
-        android:layout_margin="16dp" />
+        <!-- ===== 機能2: Bluetooth 状態リアルタイム表示 + 機能5: 有効化リクエスト ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_bt_status"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvBtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_status_unknown"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 機能5: Bluetooth 有効化リクエストボタン -->
+        <Button
+            android:id="@+id/btnRequestEnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_request_enable"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutline"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ===== 機能1: ペアリング済みデバイス一覧 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_paired_devices"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ListView
+            android:id="@+id/lvPairedDevices"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutline"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ===== 機能4: Classic Bluetooth デバイス探索 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_classic_discovery"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnStartDiscovery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_discovery_start"
+            android:layout_marginBottom="8dp" />
+
+        <ListView
+            android:id="@+id/lvDiscoveredDevices"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutline"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ===== 機能3: BLE スキャン ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_ble_scan"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnBLEScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ble_scan_start"
+            android:layout_marginBottom="8dp" />
+
+        <ListView
+            android:id="@+id/lvBleDevices"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorOutline"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ===== Bluetooth 設定画面遷移 (既存機能) ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_settings"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnOpenBLUETOOTH_SETTINGS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLUETOOTH_SETTINGS"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnOpenBLUETOOTH_DASHBOARD_SETTINGS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BLUETOOTH_DASHBOARD_SETTINGS"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+</ScrollView>

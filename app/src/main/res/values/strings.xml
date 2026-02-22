@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">BTonoffActivity</string>
+
+    <!-- セクション見出し -->
+    <string name="section_bt_status">Bluetooth 状態</string>
+    <string name="section_paired_devices">機能1: ペアリング済みデバイス</string>
+    <string name="section_classic_discovery">機能4: Classic BT デバイス探索</string>
+    <string name="section_ble_scan">機能3: BLE スキャン</string>
+    <string name="section_settings">Bluetooth 設定画面</string>
+
+    <!-- 機能2: BT 状態テキスト -->
+    <string name="bt_status_on">Bluetooth: ON ✓</string>
+    <string name="bt_status_off">Bluetooth: OFF</string>
+    <string name="bt_status_turning_on">Bluetooth: 有効化中…</string>
+    <string name="bt_status_turning_off">Bluetooth: 無効化中…</string>
+    <string name="bt_status_unknown">Bluetooth: 状態を取得中…</string>
+    <string name="bt_not_supported">Bluetooth は非対応のデバイスです</string>
+
+    <!-- 機能5: 有効化リクエスト -->
+    <string name="btn_request_enable">機能5: Bluetooth を有効にする</string>
+
+    <!-- 機能4: デバイス探索ボタン -->
+    <string name="btn_discovery_start">探索開始</string>
+    <string name="btn_discovery_stop">探索停止</string>
+
+    <!-- 機能3: BLE スキャンボタン -->
+    <string name="btn_ble_scan_start">BLE スキャン開始 (10秒)</string>
+    <string name="btn_ble_scan_stop">BLE スキャン停止</string>
+
+    <!-- 共通メッセージ -->
+    <string name="bt_please_enable">先に Bluetooth を有効にしてください</string>
+    <string name="device_unknown">Unknown Device</string>
+    <string name="no_paired_devices">ペアリング済みデバイスなし</string>
+    <string name="no_devices_found">デバイスが見つかりませんでした</string>
+    <string name="discovery_failed">探索を開始できませんでした</string>
+    <string name="ble_scanner_unavailable">BLE スキャナーを取得できません</string>
+    <string name="ble_scan_failed">BLE スキャン失敗 (エラーコード: %d)</string>
 </resources>
