@@ -43,3 +43,15 @@
 
 ## Completion Status
 - Prototype: Single-screen UI that delegates to system settings; no in-app Bluetooth on/off logic, error handling, or tests beyond template scaffolding.
+
+## Program Summary
+- Android app with a single activity containing two buttons that open system Bluetooth settings screens via intent actions.
+- Requests `android.permission.BLUETOOTH_CONNECT` before launching `android.settings.BLUETOOTH_DASHBOARD_SETTINGS`; a code comment notes Android 15+ only (not verified).
+
+## How to Use
+- Not verified: Open the project in Android Studio, build/run on a device or emulator (min SDK 31, target SDK 35).
+- Tap `BLUETOOTH_SETTINGS` to open the standard Bluetooth settings screen.
+- Tap `BLUETOOTH_DASHBOARD_SETTINGS` to request permission and open the dashboard settings screen (OS availability not verified).
+
+## Completion Status
+- Prototype: Minimal UI that delegates to system settings with basic permission handling; no in-app Bluetooth control, error handling, or tests beyond template scaffolding.
